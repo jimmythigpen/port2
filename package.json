@@ -1,0 +1,16 @@
+{
+  "name": "port2",
+  "description": "Jimmy Thigpen Portfolio",
+  "scripts": {
+    "sass": "sass --watch styles/main.scss styles/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimmythigpen/port2.git"
+  },
+  "author": "Jimmy Thigpen",
+  "dependencies": {},
+  "devDependencies": {
+    "sass": "^1.32.13"
+  }
+}

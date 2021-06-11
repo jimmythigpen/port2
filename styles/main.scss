@@ -1,0 +1,499 @@
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import '../bower_components/bitters/app/assets/stylesheets/base';
+@import '../bower_components/neat/app/assets/stylesheets/neat';
+@import 'fontello';
+@import 'slider';
+$mobile-tiny: new-breakpoint(max-width 350px);
+$mobile: new-breakpoint(max-width 600px);
+$tablet: new-breakpoint(max-width 1050px);
+
+//
+// Base CSS
+//
+html {
+  opacity: 0;
+}
+
+header {
+  @include span-columns(12);
+
+  .header-left {
+    @include span-columns(2 of 12);
+    @include media($mobile) {
+      @include span-columns(1 of 12)
+    }
+  }
+
+  .header-right {
+    @include span-columns(10 of 12);
+    @include media($mobile) {
+      @include span-columns(11 of 12)
+    }
+  }
+}
+
+.container {
+  @include outer-container(100%);
+
+  .section {
+    @include span-columns(12);
+
+    .row-half {
+      @include span-columns(6 of 12);
+      @include media($mobile) {
+        @include span-columns(12 of 12)
+      }
+    }
+
+    .row-full {
+      @include span-columns(12 of 12);
+    }
+
+    .row-3 {
+      @include span-columns(3 of 12);
+      @include media($mobile) {
+        @include span-columns(12 of 12)
+      }
+    }
+
+    .row-9 {
+      @include span-columns(9 of 12);
+      @include media($mobile) {
+        @include span-columns(12 of 12)
+      }
+    }
+  }
+}
+
+.cbp-fwslider nav span {
+
+  @include media($tablet) {
+    top: 35%;
+  }
+	@include media($mobile) {
+		top: 26%;
+	}
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.inner-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 62.5em;
+  @include media($tablet) {
+    max-width: 95%;
+  }
+}
+
+a {
+  letter-spacing: 2px;
+}
+
+.section-title {
+    font-family: 'Roboto', sans-serif;
+    color: #3a3a3a;
+    font-size: 65px;
+    margin-top: 50px;
+    margin-bottom: 15px;
+    font-weight: 100;
+    @include media($mobile) {
+      text-align: center;
+    }
+}
+
+.animate {
+  @include animation(fadein 1s cubic-bezier(.25, .1, .25, 1));
+  @include animation-fill-mode(forwards);
+  @keyframes fadein {
+     from { opacity: 0; }
+     to   { opacity: 1; }
+   }
+  @-webkit-keyframes fadein {
+     from { opacity: 0; }
+     to   { opacity: 1; }
+   }
+}
+
+//
+// Header CSS
+//
+header {
+  background: #71B48D;
+  position: fixed;
+  z-index: 1;
+
+  a {
+    color: #3a3a3a;
+    padding-bottom: 4px;
+    padding-left: 0px;
+
+    &:focus {
+      color: #3a3a3a;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.logo {
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 30px;
+  color: #3a3a3a;
+  margin: 7px 0 6px 0;
+  letter-spacing: 1px;
+}
+
+.menu {
+  margin-top: 18px;
+  float: right;
+  @include media($mobile) {
+    float: none;
+    text-align: right;
+  }
+
+  li {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-left: 50px;
+    font-size: 14px;
+    @include media($mobile) {
+      margin-left: 10px;
+    }
+  }
+}
+
+//
+// Headroom
+//
+.headroom {
+    @include transition-property(transform);
+    @include transition-duration(200ms);
+    @include transition-timing-function(linear);
+}
+.headroom--pinned {
+    @include transform(translateY(0%));
+}
+.headroom--unpinned {
+    @include transform(translateY(-100%));
+}
+
+//
+// First CSS
+//
+.first {
+  background-color: #71B48D;
+  padding-top: 100px;
+  padding-bottom: 70px;
+  @include transition(all 300ms);
+
+  .left {
+    text-align: center;
+    img {
+      width: 340px;
+      height: 340px;
+      border-radius: 5px;
+      @include transition(all 300ms);
+      @include media($tablet) {
+        width: 275px;
+        height: 275px;
+      }
+    }
+  }
+
+  .right {
+
+    section {
+      margin-top: 30px;
+      @include media($mobile) {
+        text-align: center;
+      }
+
+      h1:nth-child(1) {
+        @include animation-delay(.50s);
+        opacity: 0;
+        font-size: 100px;
+        font-weight: 100;
+        margin-bottom: 0;
+      }
+
+      h1:nth-child(2) {
+        @include animation-delay(1s);
+      }
+
+      h1:nth-child(3) {
+        @include animation-delay(1.50s);
+      }
+
+      h1:nth-child(4) {
+        @include animation-delay(2.00s);
+      }
+
+      h1:nth-child(2),
+      h1:nth-child(3),
+      h1:nth-child(4) {
+        @include transition(font-size 300ms);
+        margin-bottom: 22px;
+        font-size: 30px;
+        display: inline-block;
+        opacity: 0;
+        @include media($tablet) {
+          font-size: 20px;
+        }
+      }
+     }
+
+    a {
+      font-size: 30px;
+      padding: 2px 11px;
+      border: 1px solid;
+      color: #3a3a3a;
+      border-radius: 5px;
+      display: block;
+      width: 4.5em;
+      @include media($mobile) {
+        margin: 0 auto;
+      }
+
+      &:hover {
+        color: #fff
+      }
+    }
+  }
+}
+
+//
+// Second CSS
+//
+.second {
+  background-color: #fff;
+  padding-bottom: 50px;
+
+  .row-full {
+    margin-bottom: 20px;
+  }
+
+    p {
+      color: #424242;
+    }
+
+    h2 {
+      color: #424242;
+      line-height: 2.9em;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+
+    .toolbox-list {
+
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 15px;
+        @include media($mobile) {
+          margin-right: 5px;
+        }
+
+
+        img {
+            width: 45px;
+        }
+      }
+    }
+
+    .about-link {
+      color: #333333;
+      font-weight: bold;
+      letter-spacing: normal;
+    }
+
+    .lang-list {
+      line-height: 2.8em;
+
+      li {
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 1px;
+        margin-right: 20px;
+        color: #cfcfcf;
+        @include transition(color 300ms);
+
+        &:hover {
+          color: #3a3a3a;
+        }
+      }
+    }
+
+    .hobbies-list {
+        line-height: 2.9em;
+
+      li {
+        display: inline-block;
+        font-size: 40px;
+        color: #424242;
+        @include transition(color 300ms);
+      }
+
+      li[class*="icon"]:hover {
+        color: #1982C4;
+      }
+    }
+}
+
+//
+// Third CSS
+//
+.third {
+  background-color: #fd5f54;
+
+  .section-title {
+    color: #fff;
+  }
+  .disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  p {
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0;
+    @include media($mobile) {
+      text-align: center;
+    }
+  }
+
+  .slides {
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      font-weight: 100;
+      font-size: 40px;
+      margin-bottom: 0;
+      letter-spacing: 1px;
+      @include media($mobile) {
+        letter-spacing: 0px;
+      }
+      @include media($mobile-tiny) {
+        font-size: 30px;
+      }
+    }
+
+    p {
+      color: #fff;
+      font-weight: 500;
+      @include media($mobile) {
+        font-size: 12px;
+      }
+    }
+    a {
+      color: #fff;
+    }
+    i::before {
+      font-size: 23em;
+      @include media($tablet) {
+        font-size: 35vw;
+      }
+    }
+    .live-link {
+      display: inline-block;
+      margin-top: .5em;
+      width: 4em;
+      text-align: center;
+      margin: .5em auto 0;
+      border: 1px solid;
+      border-radius: 5px;
+      @include transition(all 200ms);
+      &.poetic {
+        width: 10em;
+        svg {
+          display: inline-block;
+          height: 1.5em;
+          vertical-align: top;
+          width: 1.5em;
+        }
+      }
+      &:hover {
+        color: #fd5f54;
+        background-color: #fff;
+        path, text {
+          transition: fill 200ms;
+          fill: #fd5f54;
+        }
+      }
+    }
+  }
+}
+
+//
+// Fourth CSS
+//
+.fourth {
+  padding-bottom: 50px;
+  background-color: #424242;
+
+    .section-title {
+      color: #fff;
+    }
+
+    p {
+      color: #cdcdcd;
+    }
+
+    .left {
+      @include media($mobile) {
+        text-align: center;
+      }
+    }
+
+    .right {
+      text-align: right;
+
+      @include media($mobile) {
+        text-align: center;
+      }
+
+      .icon {
+        color: #808080;
+        font-size: 2em;
+        @include transition(color 300ms);
+      }
+
+      a {
+        letter-spacing: 1px;
+        color: #cdcdcd;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      .icon-twitter:hover {
+        color: #54ADEE;
+      }
+      .icon-facebook:hover {
+        color: #48609E
+      }
+      .icon-instagram:hover {
+        color: #A0775C
+      }
+      .icon-tumblr:hover {
+        color: #A77DC2
+      }
+      .icon-linkedin:hover {
+        color:#2477B6
+      }
+    }
+}
