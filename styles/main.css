@@ -337,6 +337,30 @@ html {
 }
 
 /* '' */
+@font-face {
+  font-family: "special";
+  src: url("font/special.otf"), url("font/fontello.woff2?66594844") format("woff2"), url("font/fontello.woff?66594844") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.icon-x {
+  font-family: "special";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .cbp-fwslider {
   position: relative;
   margin: 0 0 10px;
